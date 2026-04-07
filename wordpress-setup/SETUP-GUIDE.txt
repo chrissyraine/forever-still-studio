@@ -1,0 +1,193 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FOREVER STILL STUDIO — WORDPRESS SETUP GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1 — INSTALL THESE PLUGINS
+────────────────────────────────
+✓ Elementor (free)          — page builder
+✓ Elementor Pro ($59/yr)    — forms, popups, motion effects
+✓ Hello Elementor (free)    — ultra-lightweight theme (made by Elementor)
+✓ Rank Math SEO (free)      — SEO, local business schema
+✓ WP Rocket ($49/yr)        — caching & speed  [OR free: W3 Total Cache]
+✓ Smush (free)              — image compression
+✓ Wordfence (free)          — security
+
+OPTIONAL BUT USEFUL:
+✓ WPForms Lite (free)       — if not using Elementor Pro forms
+✓ MonsterInsights (free)    — Google Analytics connection
+
+
+STEP 2 — THEME SETUP (Hello Elementor)
+────────────────────────────────────────
+1. Install & activate Hello Elementor theme
+2. Go to Appearance > Customize > Additional CSS
+3. Paste the ENTIRE contents of brand.css (in this folder)
+4. Save & Publish
+
+   That gives you:
+   - Color variables
+   - Google Fonts (Cormorant Garamond + Inter)
+   - Base typography
+   - Utility classes for buttons
+
+
+STEP 3 — ELEMENTOR GLOBAL SETTINGS
+────────────────────────────────────
+Go to: Elementor > Site Settings
+
+  GLOBAL COLORS — add these:
+  ┌─────────────────────────────────────────┐
+  │ Dark (background)    #1C0F1A            │
+  │ Plum                 #3D1A3A            │
+  │ Burgundy             #6B2D3E            │
+  │ Gold (accent)        #C8A96A            │
+  │ Blush                #E8C4CB            │
+  │ Cream                #FAF7F2            │
+  │ Ivory                #F0EAE0            │
+  └─────────────────────────────────────────┘
+
+  GLOBAL FONTS:
+  ┌─────────────────────────────────────────┐
+  │ Primary (headings)   Cormorant Garamond │
+  │                      Weight: 400 / 700  │
+  │ Secondary (body)     Inter              │
+  │                      Weight: 400 / 600  │
+  └─────────────────────────────────────────┘
+
+  LAYOUT:
+  ┌─────────────────────────────────────────┐
+  │ Content Width:       1280px             │
+  │ Widgets Space:       20px               │
+  └─────────────────────────────────────────┘
+
+
+STEP 4 — BUILD THE PAGE SECTIONS (in order)
+─────────────────────────────────────────────
+Use Elementor to build each section. Refer to the
+Next.js site at http://localhost:3001 as your visual reference.
+
+SECTION ORDER:
+  1.  Header (sticky) — use Elementor Header Builder (Pro)
+  2.  Hero
+  3.  Problem
+  4.  Solution
+  5.  Google Business callout strip
+  6.  Before / After
+  7.  Packages (4 cards)
+  8.  About / Why Us
+  9.  Industries (6 mock cards)
+  10. Founder quote
+  11. FAQ accordion (Elementor Pro accordion widget)
+  12. Contact form (Elementor Pro form widget)
+  13. Footer — use Elementor Footer Builder (Pro)
+
+
+STEP 5 — HERO SECTION SETTINGS
+─────────────────────────────────
+Section background:       #1C0F1A
+Min height:               100vh
+Padding top/bottom:       120px / 100px
+
+Heading widget:
+  Font: Cormorant Garamond, 700, ~72px desktop / 40px mobile
+  Color: #FAF7F2
+  Text: "Your best customers are searching for you right now. Can they find you?"
+  Highlight "Can they find you?" in gold (#C8A96A) using HTML widget
+
+Button 1 (Gold):
+  Text: Text Me. I'll Show You What's Costing You Customers.
+  Link: sms:8142820777
+  Background: #C8A96A
+  Text color: #1C0F1A
+  Font: Inter, 700, uppercase, letter-spacing 2px
+  Padding: 18px 36px
+
+Button 2 (Outline):
+  Text: See the Problem
+  Link: #problem (anchor)
+  Background: transparent
+  Border: 1px solid #E8C4CB
+  Text color: #E8C4CB
+  Hover border + text: #C8A96A
+
+
+STEP 6 — CONTACT FORM (Elementor Pro)
+───────────────────────────────────────
+Fields to add:
+  - Name (required)
+  - Business Name (required)
+  - Phone (required)
+  - Email
+  - Current website or Facebook page
+  - Message (textarea): "What's your biggest challenge right now?"
+
+Email notification → send to: chrissyschroer@gmail.com
+Success message: "Message sent! I'll reach out within 24 hours."
+
+OR use WPForms Lite → create form → embed shortcode into Elementor HTML widget.
+
+
+STEP 7 — SEO (Rank Math)
+──────────────────────────
+Go to: Rank Math > Titles & Meta > Home Page
+
+  Title: Forever Still Studio | Web Design for Local Businesses — Titusville, PA
+
+  Description: Affordable, professional website design for local restaurants,
+  bars, coffee shops, tattoo studios, and small businesses in Titusville, PA.
+  Get more customers with a fast, mobile-friendly site that actually works.
+
+Go to: Rank Math > Local SEO
+  Business Name:    Forever Still Studio
+  Business Type:    Professional Service
+  Phone:            814-282-0777
+  Address:          Titusville, PA
+  Business Hours:   Set yours
+
+
+STEP 8 — MOBILE CTA BAR
+──────────────────────────
+In Elementor Pro > Theme Builder > add a new template: "Sticky Bar"
+Set to: display on mobile only, sticky bottom.
+
+Content: Gold bar with phone icon + "Text Me — 814-282-0777"
+Background: #C8A96A
+Text/icon: #1C0F1A
+Link: sms:8142820777
+
+
+STEP 9 — SPEED OPTIMIZATION
+──────────────────────────────
+WP Rocket settings:
+  ✓ Enable caching
+  ✓ Minify CSS + JS
+  ✓ Lazy load images
+  ✓ Preload fonts
+
+Smush:
+  ✓ Auto-compress on upload
+  ✓ Convert to WebP
+
+Target score: 85+ on Google PageSpeed (mobile)
+
+
+STEP 10 — GO LIVE CHECKLIST
+──────────────────────────────
+  □ Test all anchor links (#problem, #packages, etc.)
+  □ Test contact form — send yourself a test submission
+  □ Test sms: link on a real phone
+  □ Check mobile layout at 375px and 390px width
+  □ Submit sitemap to Google Search Console (Rank Math generates it)
+  □ Set up Google Business Profile (or optimize existing one)
+  □ Connect Google Analytics via MonsterInsights
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOSTING RECOMMENDATIONS (cheapest → best)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Budget:      SiteGround ($3–6/mo)   — good for starting out
+Mid:         Cloudways ($14/mo)     — faster, more control
+Premium:     Kinsta ($35/mo)        — fastest WP hosting, great support
+
+Domain registrar: Namecheap or Cloudflare Registrar (cheapest)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-cream text-dark font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    background-color: #C8A96A;
+    color: #1C0F1A;
+  }
+
+  /* Smooth scroll offset for sticky header */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold text-dark px-8 py-4 font-sans font-bold tracking-wider uppercase text-sm
+           hover:bg-[#D4B97A] transition-all duration-200 shadow-lg shadow-gold/20
+           inline-block text-center;
+  }
+
+  .btn-outline-gold {
+    @apply border border-gold text-gold px-8 py-4 font-sans font-medium tracking-wide text-sm
+           hover:bg-gold hover:text-dark transition-all duration-200
+           inline-block text-center;
+  }
+
+  .btn-outline-blush {
+    @apply border border-blush/40 text-blush px-8 py-4 font-sans font-medium tracking-wide text-sm
+           hover:border-gold hover:text-gold transition-all duration-200
+           inline-block text-center;
+  }
+
+  .section-line {
+    @apply w-12 h-px bg-gold mb-6;
+  }
+
+  .accent-hr {
+    @apply absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+}
+
+/* Subtle dot texture for hero */
+.hero-texture {
+  background-image: radial-gradient(circle, rgba(200, 169, 106, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
