@@ -54,10 +54,10 @@ function Header() {
   }, [])
 
   const navLinks = [
-    { href: '#problem',  label: 'The Problem' },
-    { href: '#solution', label: 'How It Works' },
-    { href: '#packages', label: 'Packages' },
-    { href: '#about',    label: 'About' },
+    { href: '#problem',   label: 'The Problem' },
+    { href: '#solution',  label: 'How It Works' },
+    { href: '/packages',  label: 'Packages' },
+    { href: '#about',     label: 'About' },
   ]
 
   return (
