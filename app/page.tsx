@@ -72,22 +72,14 @@ function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3" aria-label="Forever Still Studio home">
+          <a href="#" aria-label="Forever Still Studio home">
             <img
               src="/images/logo.png"
-              alt=""
-              width={48}
-              height={48}
-              className="rounded-full flex-shrink-0"
+              alt="Forever Still Studio"
+              width={120}
+              height={120}
+              className="flex-shrink-0"
             />
-            <div className="flex flex-col leading-none">
-              <span className="font-serif text-lg lg:text-xl text-cream tracking-wide">
-                Forever Still Studio
-              </span>
-              <span className="text-gold text-[9px] tracking-[0.22em] uppercase">
-                Veteran-Owned · Titusville, PA
-              </span>
-            </div>
           </a>
 
           {/* Desktop Nav */}
