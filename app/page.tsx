@@ -1040,10 +1040,10 @@ function ContactSection() {
       value: '814-282-0777',
     },
     {
-      href: 'mailto:chrissyschroer@gmail.com',
+      href: 'mailto:chrissy@foreverstillbeauty.com',
       icon: <MailIcon />,
       label: 'Email',
-      value: 'chrissyschroer@gmail.com',
+      value: 'chrissy@foreverstillbeauty.com',
     },
     {
       href: undefined,
@@ -1385,6 +1385,25 @@ function FAQSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// ALSO FROM FOREVER STILL BANNER
+// ─────────────────────────────────────────────────────────────────────────────
+function AlsoFromBanner() {
+  return (
+    <section className="bg-[#0D0608] border-t border-plum/20 border-b border-plum/20 py-7 text-center">
+      <p className="text-[10px] font-medium tracking-[0.24em] uppercase text-gold mb-3">Also from Forever Still</p>
+      <div className="flex items-center justify-center gap-8 flex-wrap">
+        <a href="https://www.foreverstillmusic.com" target="_blank" rel="noopener" className="font-serif text-xl text-cream hover:text-gold transition-colors">
+          Forever Still <span className="text-gold">Music</span>
+        </a>
+        <span className="text-gold/20 text-xs">◆</span>
+        <a href="https://www.foreverstillbeauty.com" target="_blank" rel="noopener" className="font-serif text-xl text-cream hover:text-gold transition-colors">
+          Forever Still <span className="text-gold">Beauty</span>
+        </a>
+      </div>
+    </section>
+  )
+}
+
 // FOOTER
 // ─────────────────────────────────────────────────────────────────────────────
 function Footer() {
@@ -1415,11 +1434,11 @@ function Footer() {
                 814-282-0777
               </a>
               <a
-                href="mailto:chrissyschroer@gmail.com"
+                href="mailto:chrissy@foreverstillbeauty.com"
                 className="flex items-center gap-2.5 text-blush/60 text-sm hover:text-gold transition-colors"
               >
                 <MailIcon />
-                chrissyschroer@gmail.com
+                chrissy@foreverstillbeauty.com
               </a>
               <div className="flex items-center gap-2.5 text-blush/40 text-sm">
                 <PinIcon />
@@ -1486,6 +1505,7 @@ export default function Home() {
         <FAQSection />
         <ContactSection />
       </main>
+      <AlsoFromBanner />
       <Footer />
       <FloatingCTA />
     </>
