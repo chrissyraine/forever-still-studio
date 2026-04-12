@@ -285,9 +285,9 @@ export default function ClientsPage() {
 
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-gold/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-24">
           <Link href="/" aria-label="Forever Still Studio home">
-            <img src="/images/logo.png" alt="Forever Still Studio" width={80} height={80} className="flex-shrink-0" />
+            <img src="/images/logo.png" alt="Forever Still Studio" width={140} height={140} className="flex-shrink-0" />
           </Link>
           <span className="font-sans text-xs tracking-widest uppercase text-gold/60">
             Client Portal
@@ -296,7 +296,7 @@ export default function ClientsPage() {
       </nav>
 
       {/* Header */}
-      <header className="pt-28 pb-8 px-6 text-center border-b border-gold/20">
+      <header className="pt-36 pb-8 px-6 text-center border-b border-gold/20">
         <p className="font-serif text-3xl sm:text-4xl font-bold text-gold tracking-[0.14em]">
           Forever Still Studio
         </p>
