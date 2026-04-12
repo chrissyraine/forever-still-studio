@@ -159,12 +159,23 @@ export default function ClientsPage() {
   const [topQuestion, setTopQuestion] = useState('')
   const [searchTerms, setSearchTerms] = useState('')
 
+  // ── STEP 3 additions
+  const [services, setServices]         = useState<string[]>([])
+  const [pageCount, setPageCount]       = useState('')
+  const [launchDate, setLaunchDate]     = useState('')
+
+  // ── STEP 6 additions
+  const [uniqueness, setUniqueness]     = useState('')
+  const [revenueStreams, setRevenueStreams] = useState('')
+
   // ── STEP 7: Going forward
   const [updateSite, setUpdateSite]     = useState('')
   const [wantsManagement, setWantsManagement] = useState('')
   const [hasLicense, setHasLicense]     = useState('Not sure')
   const [takesOnlinePayments, setTakesOnlinePayments] = useState('No')
   const [needsBooking, setNeedsBooking] = useState('No')
+  const [integrations, setIntegrations] = useState<string[]>([])
+  const [needsHosting, setNeedsHosting] = useState('')
   const [notes, setNotes]               = useState('')
 
   function scrollTop() {
@@ -214,8 +225,11 @@ export default function ClientsPage() {
         biggest_problem: problem         || 'Not provided',
         website_goal:    goal            || 'Not provided',
         main_cta:        mainCta         || 'Not selected',
+        services_needed: services.join(', ') || 'Not specified',
+        page_count:      pageCount       || 'Not specified',
         budget,
         timeline,
+        launch_date:     launchDate      || 'No hard date',
         availability:    availability    || 'Not provided',
         // Step 4
         vibe:            vibe            || 'Not selected',
@@ -237,12 +251,16 @@ export default function ClientsPage() {
         customers_say:   customerSays    || 'Not provided',
         top_question:    topQuestion     || 'Not provided',
         search_terms:    searchTerms     || 'Not provided',
+        unique_selling_point: uniqueness || 'Not provided',
+        revenue_streams: revenueStreams  || 'Not provided',
         // Step 7
         who_updates_site:      updateSite          || 'Not answered',
         wants_management:      wantsManagement     || 'Not answered',
         business_license:      hasLicense,
         online_payments:       takesOnlinePayments,
         needs_booking_system:  needsBooking,
+        integrations_needed:   integrations.join(', ') || 'None specified',
+        needs_hosting:         needsHosting        || 'Not answered',
         notes:                 notes               || 'None',
         _source: 'foreverstillstudio.com/clients',
       }
@@ -526,6 +544,28 @@ export default function ClientsPage() {
                     </div>
                   </div>
 
+                  <div>
+                    <span className={labelClass}>Which services are you looking for? (pick all that apply)</span>
+                    <div className="flex flex-wrap gap-2.5 mt-1">
+                      {['Website Design', 'Brand Identity', 'Content Creation', 'Ongoing Maintenance', 'SEO'].map(s => (
+                        <Chip key={s} label={s} selected={services.includes(s)}
+                          onClick={() => setServices(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s])} />
+                      ))}
+                    </div>
+                  </div>
+
+                  <label className="block">
+                    <span className={labelClass}>Do you need a full website or a single landing page?</span>
+                    <select value={pageCount} onChange={e => setPageCount(e.target.value)}
+                      className={inputClass} style={selectStyle}>
+                      <option value="">— Not sure yet —</option>
+                      <option>Single landing page</option>
+                      <option>2–3 pages</option>
+                      <option>Full website (4+ pages)</option>
+                      <option>Not sure — let's figure it out</option>
+                    </select>
+                  </label>
+
                   <label className="block">
                     <span className={labelClass}>Budget (ballpark is fine)</span>
                     <select value={budget} onChange={e => setBudget(e.target.value)}
@@ -547,6 +587,14 @@ export default function ClientsPage() {
                       <option>Just exploring for now</option>
                     </select>
                   </label>
+                  <label className="block">
+                    <span className={labelClass}>Is there a specific date you need to be live by?</span>
+                    <input type="text" value={launchDate} onChange={e => setLaunchDate(e.target.value)}
+                      placeholder="e.g. Before our grand opening June 1st, before the holidays, no hard date..."
+                      className={inputClass} />
+                    <p className="font-sans text-xs text-cream/30 mt-1.5">Helps us block time and prioritize your project.</p>
+                  </label>
+
                   <label className="block">
                     <span className={labelClass}>Best time to reach you?</span>
                     <input type="text" value={availability} onChange={e => setAvailability(e.target.value)}
@@ -756,6 +804,22 @@ export default function ClientsPage() {
                       placeholder="e.g. Word of mouth, Google, Instagram, driving by..."
                       className={inputClass} />
                   </label>
+
+                  <label className="block">
+                    <span className={labelClass}>What makes you different from similar businesses in your area?</span>
+                    <textarea rows={3} value={uniqueness} onChange={e => setUniqueness(e.target.value)}
+                      placeholder="e.g. We're the only place in town that does X. We've been here 10 years. Our prices are..."
+                      className={`${inputClass} resize-y`} />
+                    <p className="font-sans text-xs text-cream/30 mt-1.5">This becomes your competitive edge on the site.</p>
+                  </label>
+
+                  <label className="block">
+                    <span className={labelClass}>What are your main sources of revenue?</span>
+                    <textarea rows={2} value={revenueStreams} onChange={e => setRevenueStreams(e.target.value)}
+                      placeholder="e.g. In-person services, retail products, events, memberships..."
+                      className={`${inputClass} resize-y`} />
+                    <p className="font-sans text-xs text-cream/30 mt-1.5">Helps us feature what actually makes you money.</p>
+                  </label>
                 </div>
               </div>
             )}
@@ -813,6 +877,27 @@ export default function ClientsPage() {
                       <option>No — sole proprietor</option>
                     </select>
                   </label>
+                  <div>
+                    <span className={labelClass}>Do you need any of these built into your site? (pick all that apply)</span>
+                    <div className="flex flex-wrap gap-2.5 mt-1">
+                      {['Online Store', 'Email Newsletter Signup', 'Google Maps / Location', 'Social Media Feed', 'Live Chat', 'None of these'].map(s => (
+                        <Chip key={s} label={s} selected={integrations.includes(s)}
+                          onClick={() => setIntegrations(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s])} />
+                      ))}
+                    </div>
+                  </div>
+
+                  <label className="block">
+                    <span className={labelClass}>Will you need website hosting?</span>
+                    <select value={needsHosting} onChange={e => setNeedsHosting(e.target.value)}
+                      className={inputClass} style={selectStyle}>
+                      <option value="">— Not sure —</option>
+                      <option>Yes — I need everything set up</option>
+                      <option>No — I have hosting already</option>
+                      <option>Not sure — let's talk about it</option>
+                    </select>
+                  </label>
+
                   <label className="block">
                     <span className={labelClass}>Anything else you want Chrissy to know?</span>
                     <textarea rows={4} value={notes} onChange={e => setNotes(e.target.value)}
