@@ -3,7 +3,8 @@
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 
-const FORMSPREE = 'https://formspree.io/f/mykbqenb'
+const FORTRESS_URL   = 'https://subsector-botanist-karate.ngrok-free.dev/gates/push'
+const FORTRESS_TOKEN = 'fss-forever-still-xK9mQpRt2026'
 
 const inputClass =
   'w-full bg-[#2a1228] border border-[rgba(200,169,106,0.25)] text-cream font-sans text-base px-4 py-3.5 focus:outline-none focus:border-gold transition-colors placeholder:text-cream/25'
@@ -246,9 +247,13 @@ export default function ClientsPage() {
         _source: 'foreverstillstudio.com/clients',
       }
 
-      const res = await fetch(FORMSPREE, {
+      const res = await fetch(FORTRESS_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'X-Fortress-Token': FORTRESS_TOKEN,
+        },
         body: JSON.stringify(payload),
       })
 
