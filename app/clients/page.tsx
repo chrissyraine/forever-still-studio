@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 
-const FORTRESS_URL   = 'https://subsector-botanist-karate.ngrok-free.dev/gates/push'
+const FORTRESS_URL   = 'https://subsector-botanist-karate.ngrok-free.app/gates/push'
 const FORTRESS_TOKEN = 'fss-forever-still-xK9mQpRt2026'
 
 const inputClass =
