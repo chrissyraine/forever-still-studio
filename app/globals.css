@@ -8,7 +8,7 @@ html {
 
 @layer base {
   body {
-    @apply antialiased bg-cream text-dark font-sans;
+    @apply antialiased bg-dark text-cream font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {

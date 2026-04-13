@@ -7,7 +7,7 @@ const FORTRESS_URL   = 'https://subsector-botanist-karate.ngrok-free.app/gates/p
 const FORTRESS_TOKEN = 'fss-forever-still-xK9mQpRt2026'
 
 const inputClass =
-  'w-full bg-[#2a1228] border border-[rgba(200,169,106,0.25)] text-cream font-sans text-base px-4 py-3.5 focus:outline-none focus:border-gold transition-colors placeholder:text-cream/25'
+  'w-full bg-card border border-[rgba(200,169,106,0.25)] text-cream font-sans text-base px-4 py-3.5 focus:outline-none focus:border-gold transition-colors placeholder:text-cream/25'
 const labelClass =
   'block text-[0.72rem] font-bold tracking-[0.18em] text-cream/50 uppercase mb-2'
 const sectionLabel =
@@ -36,7 +36,7 @@ function ChoiceCard({
       className={`relative text-left p-5 border-2 transition-all ${
         selected
           ? 'border-gold bg-gold/10 text-gold'
-          : 'border-gold/15 bg-[#2a1228] text-cream/80 hover:border-gold/40'
+          : 'border-gold/15 bg-card text-cream/80 hover:border-gold/40'
       }`}
     >
       {selected && (
@@ -63,7 +63,7 @@ function SwatchCard({
     >
       <div className="h-14 w-full" style={{ background: gradient }} />
       <div className={`py-2 px-2 font-sans text-xs text-center ${
-        selected ? 'text-gold bg-gold/10' : 'text-cream/50 bg-[#2a1228]'
+        selected ? 'text-gold bg-gold/10' : 'text-cream/50 bg-card'
       }`}>
         {label}
       </div>
@@ -82,7 +82,7 @@ function Chip({
       className={`flex items-center gap-2 font-sans text-sm px-4 py-3 border transition-all ${
         selected
           ? 'border-gold text-gold bg-gold/5'
-          : 'border-gold/25 text-cream/70 bg-[#2a1228] hover:border-gold/50'
+          : 'border-gold/25 text-cream/70 bg-card hover:border-gold/50'
       }`}
     >
       <span className={`w-4 h-4 border flex items-center justify-center flex-shrink-0 ${
@@ -302,28 +302,39 @@ export default function ClientsPage() {
     <div className="min-h-screen bg-dark text-cream" ref={topRef}>
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-gold/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-40">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gold/10" style={{ background: 'rgba(13,11,11,0.96)', backdropFilter: 'blur(12px)' }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-10 flex items-center justify-between h-36">
           <Link href="/" aria-label="Forever Still Studio home">
-            <img src="/images/logo.png" alt="Forever Still Studio" width={140} height={140} className="flex-shrink-0" />
+            <img src="/images/logo.png" alt="Forever Still Studio" width={120} height={120} className="flex-shrink-0" />
           </Link>
-          <span className="font-sans text-xs tracking-widest uppercase text-gold/60">
-            Client Portal
-          </span>
+          <div className="flex items-center gap-3">
+            <div className="h-px w-5 bg-gold/30" />
+            <span className="font-sans text-[0.65rem] tracking-[0.28em] uppercase text-gold/50">
+              Client Portal
+            </span>
+          </div>
         </div>
       </nav>
 
       {/* Header */}
-      <header className="pt-52 pb-8 px-6 text-center border-b border-gold/20">
-        <p className="font-serif text-3xl sm:text-4xl font-bold text-gold tracking-[0.14em]">
+      <header className="pt-52 pb-10 px-6 text-center border-b border-gold/20">
+        <p className="font-sans text-[0.65rem] tracking-[0.3em] uppercase text-gold/70 mb-4">
           Forever Still Studio
         </p>
-        <p className="font-sans text-[0.75rem] tracking-[0.26em] uppercase text-cream/50 mt-2.5">
+        <div className="flex items-center justify-center gap-4 mb-5">
+          <div className="h-px w-10 bg-gold/40" />
+          <span className="text-gold/40 text-xs">◆</span>
+          <div className="h-px w-10 bg-gold/40" />
+        </div>
+        <h1 className="font-script text-5xl sm:text-6xl text-gold leading-none mb-3" style={{ fontFamily: 'var(--font-allura), cursive' }}>
           Client Portal
+        </h1>
+        <p className="font-serif text-lg sm:text-xl text-cream/60 italic font-light mt-2">
+          Let's build something that works.
         </p>
         {!submitted && (
-          <p className="font-sans text-sm text-cream/60 mt-4 max-w-sm mx-auto leading-relaxed">
-            Take your time — there are no wrong answers. This helps us build exactly what you need.
+          <p className="font-sans text-sm text-cream/50 mt-4 max-w-sm mx-auto leading-relaxed">
+            Take your time — there are no wrong answers. This helps me build exactly what you need.
           </p>
         )}
       </header>
@@ -333,13 +344,18 @@ export default function ClientsPage() {
         {submitted ? (
           // ── SUCCESS ──────────────────────────────────────────────────────────
           <div className="text-center py-20">
-            <div className="text-5xl mb-6">🎉</div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-gold mb-4">You're all set.</h2>
-            <p className="font-sans text-base text-cream/60 leading-relaxed max-w-sm mx-auto mb-8">
-              Chrissy has everything she needs to get started. She'll be in touch soon to go over it all.
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-12 bg-gold/40" />
+              <span className="text-gold/40 text-xs">◆</span>
+              <div className="h-px w-12 bg-gold/40" />
+            </div>
+            <h2 className="font-script text-5xl text-gold mb-4 leading-none" style={{ fontFamily: 'var(--font-allura), cursive' }}>You're all set.</h2>
+            <p className="font-serif text-xl text-cream/50 italic font-light mb-6">Something beautiful is about to begin.</p>
+            <p className="font-sans text-sm text-cream/50 leading-relaxed max-w-sm mx-auto mb-8">
+              I have everything I need to get started. I'll be in touch soon to go over it all.
             </p>
             {hasLogo === 'Yes' && !logoLink && (
-              <div className="bg-[#2a1228] border border-gold/25 p-5 text-left max-w-sm mx-auto">
+              <div className="bg-card border border-gold/25 p-5 text-left max-w-sm mx-auto">
                 <p className="font-sans text-sm text-gold font-bold mb-1">One more thing</p>
                 <p className="font-sans text-sm text-cream/60 leading-relaxed">
                   Please email your logo file to{' '}
@@ -937,8 +953,8 @@ export default function ClientsPage() {
       {toast && (
         <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 font-sans text-sm tracking-wide px-6 py-3.5 border z-50 pointer-events-none ${
           toast.error
-            ? 'bg-[#2a1228] border-[#c0445a] text-[#c0445a]'
-            : 'bg-[#2a1228] border-gold text-gold'
+            ? 'bg-card border-[#c0445a] text-[#c0445a]'
+            : 'bg-card border-gold text-gold'
         }`}>
           {toast.msg}
         </div>
